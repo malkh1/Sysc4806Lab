@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>HOME</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                display: flex;
+            }
+            h1 {
+                text-align: center;
+            }
+            .newline {
+                padding-left: 1vw;
+                display: block;
+            }
+            .buddy .book{
+                padding-left: 1vw;
+            }
+            .buddy{
+                padding-left: 2vw;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <h1>List of address books and buddy info's</h1>
+            <p class="book" th:each="aBook : ${bookList}">
+            <span class="newline">Book Id: <span th:text="${aBook.id}"></span></span>
+            <span class="newline">buddies: <span th:text="${aBook.buddyInfoList}"></span></span>
+         <!--   <p class="buddy" th:each="aBuddy : ${aBook.buddyInfoList}">
+                <span class="newline">Name: <span th:text="${aBuddy.name}"></span></span>
+                <span class="newline">Id: <span th:text="${aBuddy.id}"></span></span>
+                <span class="newline">Phone Number: <span th:text="${aBuddy.phoneNumber}"></span></span>
+            </p>-->
+            
+    </section>
+</body>
+</html>

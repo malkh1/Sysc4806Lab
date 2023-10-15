@@ -1,0 +1,9 @@
+com\mycompany\mavenproject1\RunApplication.class
+com\mycompany\mavenproject1\models\AddressBook.class
+com\mycompany\mavenproject1\controllers\AddressBookController.class
+com\mycompany\mavenproject1\configurations\ThymeleafConfig.class
+com\mycompany\mavenproject1\controllers\BuddyInfoRepository.class
+com\mycompany\mavenproject1\controllers\HomeController.class
+com\mycompany\mavenproject1\controllers\AddressBookRepository.class
+com\mycompany\mavenproject1\controllers\BuddyInfoController.class
+com\mycompany\mavenproject1\models\BuddyInfo.class
