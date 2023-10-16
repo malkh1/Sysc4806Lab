@@ -16,8 +16,8 @@ public class AddressBookTest {
 
     private AddressBook instance = new AddressBook();
     {
-        instance.addBuddy(new BuddyInfo("jimmy", "613-111-2222"));
-        instance.addBuddy(new BuddyInfo("tom", "613-345-5678"));
+        instance.addBuddy(new BuddyInfo("jimmy", "613-111-2222", "112 abc rd"));
+        instance.addBuddy(new BuddyInfo("tom", "613-345-5678", "122 abc rd"));
     }
     /**
      * Test of printAddressBook method, of class AddressBook.
@@ -45,7 +45,7 @@ public class AddressBookTest {
     public void testGetBuddyInfo() {
         System.out.println("getBuddyInfo");
         String name = "jimmy";
-        BuddyInfo expResult = new BuddyInfo("jimmy", "613-111-2222");
+        BuddyInfo expResult = new BuddyInfo("jimmy", "613-111-2222", "1212 abc rd");
         BuddyInfo result = instance.getBuddyInfo(name);
         assertEquals(expResult.getName(), result.getName());
 
@@ -58,7 +58,7 @@ public class AddressBookTest {
     public void testRemoveBuddyInfo() {
         System.out.println("removeBuddyInfo");
         String name = "tom";
-        BuddyInfo expResult = new BuddyInfo("tom", "613-345-5678");
+        BuddyInfo expResult = new BuddyInfo("tom", "613-345-5678", "982 abc rd");
         BuddyInfo result = instance.removeBuddyInfo(name);
         assertEquals(expResult.getName(), result.getName());
         

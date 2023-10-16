@@ -12,7 +12,7 @@ public class BuddyInfoTest {
     private BuddyInfo instance;
 
     {
-        instance = new BuddyInfo("jimmy", "613-111-2222");
+        instance = new BuddyInfo("jimmy", "613-111-2222", "444 abc rd");
     }
 
     /**
@@ -39,6 +39,13 @@ public class BuddyInfoTest {
         assertEquals(expResult, result);
 
     }
-     
+    
+    @Test 
+    public void testGetAddress() {
+        System.out.println("getAddress");
+        String expResult = "444 abc rd";
+        String result = instance.getAddress();
+        assertEquals(expResult, result);
+    }
     
 }

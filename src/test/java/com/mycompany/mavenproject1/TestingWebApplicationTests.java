@@ -56,7 +56,7 @@ public class TestingWebApplicationTests {
     
     @Test 
     public void testPOST() throws Exception {
-        BuddyInfo testBuddy = new BuddyInfo("james", "613-224-6673");
+        BuddyInfo testBuddy = new BuddyInfo("james", "613-224-6673", "1992 abc rd");
         String jamesAsJson = new ObjectMapper().writeValueAsString(testBuddy);
         var requestBuilder = MockMvcRequestBuilders.post("/buddies")
                 .accept(MediaType.APPLICATION_JSON)

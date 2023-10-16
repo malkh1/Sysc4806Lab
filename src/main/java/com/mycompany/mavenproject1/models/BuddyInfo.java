@@ -16,22 +16,20 @@ public class BuddyInfo {
     @GeneratedValue
     private Long Id;
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long Id) {
-        this.Id = Id;
-    }
+   
 
     @Column(nullable = false, length = 30)
     private String name;
     @Column
     private String phoneNumber;
+    
+    @Column
+    private String address;
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
 
     /**
      * Default constructor for following JavaBeans convention
@@ -43,9 +41,11 @@ public class BuddyInfo {
      * @param name name of the buddy
      * @param phoneNumber phone number of the buddy
      */
-    public BuddyInfo (String name, String phoneNumber) {
+    public BuddyInfo (String name, String phoneNumber,
+             String address) {
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     
@@ -64,6 +64,31 @@ public class BuddyInfo {
      */
     public String getName() {
         return name;
+    }
+    
+    
+    /**
+     * get the address of this buddyInfo entity
+     * @return string value of address
+     */
+    public String getAddress() {
+        return address;
+    }
+    
+    /**
+     * gets Id of this BuddyInfo entity
+     * @return gets Id of this BuddyInfo entity
+     */
+    public Long getId() {
+        return Id;
+    }
+
+    /**
+     * set the Id of this buddyInfo entity
+     * @param Id Id of this buddyInfo entity to be set
+     */
+    public void setId(Long Id) {
+        this.Id = Id;
     }
     
 }
