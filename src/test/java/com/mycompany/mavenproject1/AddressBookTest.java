@@ -2,9 +2,8 @@ package com.mycompany.mavenproject1;
 
 import com.mycompany.mavenproject1.models.AddressBook;
 import com.mycompany.mavenproject1.models.BuddyInfo;
-import static junit.framework.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 
 
@@ -15,15 +14,11 @@ import org.junit.Test;
 
 public class AddressBookTest {
 
-    private AddressBook instance;
-    
-    @Before
-    public void setUp() throws Exception {
-        instance = new AddressBook();
+    private AddressBook instance = new AddressBook();
+    {
         instance.addBuddy(new BuddyInfo("jimmy", "613-111-2222"));
         instance.addBuddy(new BuddyInfo("tom", "613-345-5678"));
     }
-
     /**
      * Test of printAddressBook method, of class AddressBook.
      */

@@ -1,10 +1,8 @@
 package com.mycompany.mavenproject1;
 
 import com.mycompany.mavenproject1.models.BuddyInfo;
-import static junit.framework.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for BuddyInfo class
@@ -13,8 +11,7 @@ import org.junit.Test;
 public class BuddyInfoTest {
     private BuddyInfo instance;
 
-    @Before
-    public void setUp() throws Exception {
+    {
         instance = new BuddyInfo("jimmy", "613-111-2222");
     }
 
