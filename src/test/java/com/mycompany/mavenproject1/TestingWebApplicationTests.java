@@ -43,12 +43,12 @@ public class TestingWebApplicationTests {
     
     @Test
     public void testGET() throws Exception {
-        this.mockMvc.perform(get("/home"))
+        mockMvc.perform(get("/home"))
                 .andDo(print())
                 .andExpect(status().isOk()).
                 andExpect(content().string(containsString("List")));
         
-        this.mockMvc.perform(get("/buddies"))
+        mockMvc.perform(get("/buddies"))
                 .andDo(print())
                 .andExpect(status().isOk()).
                 andExpect(content().string(containsString("jimmy")));
