@@ -2,42 +2,61 @@
 package com.mycompany.mavenproject1.controllers;
 
 import com.mycompany.mavenproject1.models.AddressBook;
+import com.mycompany.mavenproject1.models.BuddyInfo;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
  * @author Mohammad 101162465
  */
-/*
-@RestController
-@RequestMapping(value="/api")*/
+
+@Controller
 public class AddressBookController {
-    /*
-    private final AddressBookRepository repo;
+    
+   
+    private final AddressBookRepository bookRepo;
+    
+    private final BuddyInfoRepository buddyRepo;
 
     @Autowired
-    public AddressBookController(AddressBookRepository repo) {
-        this.repo = repo;
+    public AddressBookController(AddressBookRepository bookRepo, BuddyInfoRepository buddyRepo) {
+        this.bookRepo = bookRepo;
+        this.buddyRepo = buddyRepo;
     }
     
-    @PostMapping("/addaddressbook")
-    public AddressBook createEntity(@RequestBody AddressBook addressbook) {
-        return repo.save(addressbook);
+    @PostMapping("/home/createbook")
+    public String createBook(Model model, @ModelAttribute AddressBook addressbook) {
+        bookRepo.save(addressbook);
+        List<AddressBook> bookList = (List<AddressBook>) bookRepo.findAll();
+        model.addAttribute("bookList", bookList);
+        System.out.println("create entity from addressbook controller got called");
+        return "home";
     }
     
-    @DeleteMapping("/addaddressbook")
-    public String deleteEntity(@RequestBody AddressBook book) {
-        boolean beforeRemoval = repo.existsById(book.getId());
-        repo.delete(book);
-        boolean afterRemoval = repo.existsById(book.getId());
-        if (beforeRemoval != afterRemoval) {
-            return book.getId() + " was removed.";
-        }
-        return book.getId() + " was not found in the database.";
-    }*/
+    @Transactional
+    @PostMapping("/home/addbuddy")
+    public String addBuddy(Model model, @RequestParam("bookId") Long bookId,
+            @RequestParam("name") String name, 
+            @RequestParam("phonenumber") String phoneNumber,
+            @RequestParam("address") String address) {
+        
+        BuddyInfo newBuddy = new BuddyInfo(name, phoneNumber, address);
+        AddressBook addressBook = bookRepo.findById(bookId).orElse(null);
+
+        addressBook.addBuddy(newBuddy);
+        bookRepo.save(addressBook);
+        model.addAttribute("bookList", (List<AddressBook>) bookRepo.findAll());
+        return "home";
+    }
 }
