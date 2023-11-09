@@ -1,8 +1,17 @@
 $(document).ready(function() {
-    $.ajax({
-        url: "http://localhost:8080"
-    }).then(function(data) {
-       $('#book-id').append(data.id);
-       $('#book-list').append(data.content);
+    $('#add-book').click(function (){
+        $.ajax({
+            url: "/books",
+            method: "POST",
+            success: function(data) {
+                $(".addressbook-sections").html(data);
+                alert("ajax called!");
+            },
+            error: function () {
+                alert("some error happened. idk what happened")
+            }
+        });
     });
+    
+
 });

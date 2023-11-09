@@ -35,22 +35,22 @@ public class AddressBook {
     }
 
     /**
-     * instantiates the address book object with no entries by default
+     * instantiates the AddressBook object with no entries by default
      */
     public AddressBook() {
         buddyInfoList = new ArrayList<>();
     }
 
     /**
-     * get the Id of this addressbook object
-     * @return Id of the addressbook as a Long
+     * get the Id of this AddressBook object
+     * @return Id of the AddressBook as a Long
      */
     public Long getId() {
         return Id;
     }
 
     /**
-     * set the id of this addressbook object
+     * set the id of this AddressBook object
      * @param Id long val needed to set objects Id
      */
     public void setId(Long Id) {
@@ -66,19 +66,19 @@ public class AddressBook {
     }
 
     /**
-     * add a buddyinfo entry into the address book
+     * add a BuddyInfo entry into the address book
      *
-     * @param bi the buddyinfo object that you want to add
+     * @param bi the BuddyInfo object that you want to add
      */
     public void addBuddy(BuddyInfo bi) {
         buddyInfoList.add(bi);
     }
 
     /**
-     * retrieve a buddyinfo object from the address book list
+     * retrieve a BuddyInfo object from the address book list
      *
      * @param name the name of the buddy whose info you want
-     * @return the buddyinfo object of the buddy you are looking for
+     * @return the BuddyInfo object of the buddy you are looking for
      * @throw error if the buddy is not in the address book
      */
     public BuddyInfo getBuddyInfo(String name) {
@@ -92,11 +92,11 @@ public class AddressBook {
     }
 
     /**
-     * removes a buddyinfo object from the address book list and returns the
+     * removes a BuddyInfo object from the address book list and returns the
      * object to you
      *
      * @param name the name of the buddy whose info you want
-     * @return the buddyinfo object of the buddy you are removing
+     * @return the BuddyInfo object of the buddy you are removing
      * @throw error if the buddy is not in the address book
      */
     public BuddyInfo removeBuddyInfo(String name) {

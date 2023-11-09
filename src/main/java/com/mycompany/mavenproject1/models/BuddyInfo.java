@@ -68,7 +68,7 @@ public class BuddyInfo {
     
     
     /**
-     * get the address of this buddyInfo entity
+     * get the address of this BuddyInfo entity
      * @return string value of address
      */
     public String getAddress() {
@@ -84,8 +84,8 @@ public class BuddyInfo {
     }
 
     /**
-     * set the Id of this buddyInfo entity
-     * @param Id Id of this buddyInfo entity to be set
+     * set the Id of this BuddyInfo entity
+     * @param Id Id of this BuddyInfo entity to be set
      */
     public void setId(Long Id) {
         this.Id = Id;

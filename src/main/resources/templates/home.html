@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="hello.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <style>
             body {
                 display: flex;
@@ -24,6 +25,9 @@
             .buddy{
                 padding-left: 2vw;
             }
+            .addressbook-sections {
+                
+            }
         </style>
     </head>
     <body>
@@ -35,7 +39,7 @@
                 <p>Want to create an address book and fill it with buddies?</p>
                 <button id="add-book" type="submit">Add book</button>
             </form>
-            <section th:each="aBook : ${bookList}">
+            <section class="addressbook-sections" th:each="aBook : ${bookList}">
                 <p class="book" >
                     <span class="newline" >
                         Book Id: <span id="book-id" th:text="${aBook.id}"></span></span>

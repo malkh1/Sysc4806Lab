@@ -1,15 +1,17 @@
 $(document).ready(function() {
     $('#add-book').click(function (){
         $.ajax({
-            type: "POST",
-            url: "/books"
+            url: "/books",
+            method: "POST",
+            success: function(data) {
+                $(".addressbook-sections").html(data);
+                alert("ajax called!");
+            },
+            error: function () {
+                alert("some error happened. idk what happened");
+            }
         });
     });
     
-    $.ajax({
-        url: "http://localhost:8080"
-    }).then(function(data) {
-       $('#book-id').append(data.Id);
-       $('#book-list').append(data.buddyInfoList);
-    });
+
 });
