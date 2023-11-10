@@ -26,7 +26,7 @@
                 padding-left: 2vw;
             }
             .addressbook-sections {
-                
+
             }
         </style>
     </head>
@@ -42,10 +42,16 @@
             <section class="addressbook-sections" th:each="aBook : ${bookList}">
                 <p class="book" >
                     <span class="newline" >
-                        Book Id: <span id="book-id" th:text="${aBook.id}"></span></span>
+                        Book Id: <span th:id="'book-id_' + ${aBook.id}" th:text="${aBook.id}"></span></span>
                     <span class="newline" >
-                        buddies: <span id="book-list" th:text="${aBook.buddyInfoList}"></span></span>
-                </p>    
+                        buddies:<p><span th:each="buddyInfo : ${aBook.buddyInfoList}">
+                                <span class="newline" th:text="${buddyInfo.name}"></span>
+                                <span class="newline" th:text="${buddyInfo.phoneNumber}"></span>
+                                <span class="newline" th:text="${buddyInfo.address}"></span>
+                            </span>
+                        </p>  
+					</span>						
+                   </p>
                 <form th:action="@{http://localhost:8080/home/addbuddy}" method="POST">
                     <p>add buddy to this list</p>
                     <label for="name">name: <input type="text" id="name" name="name" required></label>

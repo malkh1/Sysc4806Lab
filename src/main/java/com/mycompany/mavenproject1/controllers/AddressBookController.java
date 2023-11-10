@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,30 +22,31 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @Controller
+@RequestMapping("/home")
 public class AddressBookController {
-    
    
     private final AddressBookRepository bookRepo;
-    
-    private final BuddyInfoRepository buddyRepo;
+
 
     @Autowired
-    public AddressBookController(AddressBookRepository bookRepo, BuddyInfoRepository buddyRepo) {
+    public AddressBookController(AddressBookRepository bookRepo) {
         this.bookRepo = bookRepo;
-        this.buddyRepo = buddyRepo;
     }
     
-    @PostMapping("/home/createbook")
+    private List<AddressBook> getBookList() {
+        return (List<AddressBook>) bookRepo.findAll();
+    }
+    
+    @PostMapping("/createbook")
     public String createBook(Model model, @ModelAttribute AddressBook addressbook) {
         bookRepo.save(addressbook);
-        List<AddressBook> bookList = (List<AddressBook>) bookRepo.findAll();
-        model.addAttribute("bookList", bookList);
+        model.addAttribute("bookList", getBookList());
         System.out.println("create entity from addressbook controller got called");
         return "home";
     }
     
     @Transactional
-    @PostMapping("/home/addbuddy")
+    @PostMapping("/addbuddy")
     public String addBuddy(Model model, @RequestParam("bookId") Long bookId,
             @RequestParam("name") String name, 
             @RequestParam("phonenumber") String phoneNumber,
@@ -55,7 +57,7 @@ public class AddressBookController {
 
         addressBook.addBuddy(newBuddy);
         bookRepo.save(addressBook);
-        model.addAttribute("bookList", (List<AddressBook>) bookRepo.findAll());
+        model.addAttribute("bookList", getBookList());
         return "home";
     }
 }

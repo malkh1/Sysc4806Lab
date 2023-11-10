@@ -8,7 +8,7 @@ $(document).ready(function() {
                 alert("ajax called!");
             },
             error: function () {
-                alert("some error happened. idk what happened")
+                alert("some error happened. idk what happened");
             }
         });
     });
