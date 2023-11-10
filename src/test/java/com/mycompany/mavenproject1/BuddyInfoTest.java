@@ -22,7 +22,7 @@ public class BuddyInfoTest {
     public void testToString() {
         System.out.println("getInfo");
         
-        String expResult = "Name: jimmy\nPhone number: 613-111-2222\n";
+        String expResult = "Name: jimmy\nPhone number: 613-111-2222\nAddress: 444 abc rd\n";
         String result = instance.toString();
         assertEquals(expResult, result);
        
