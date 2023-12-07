@@ -24,17 +24,17 @@ public class RunApplication {
     public CommandLineRunner demo(BuddyInfoRepository buddyRepository,
             AddressBookRepository bookRepository) {
         return (args) -> {
-            var jimmy = new BuddyInfo("jimmy", "613-111-2222", "112 abc rd");
-            var timmy = new BuddyInfo("timmy", "613-222-3333", "163 abc rd");
-            var himmy = new BuddyInfo("himmy", "613-333-4444", "124 abc rd");
-            var billy = new BuddyInfo("billy", "613-444-5555", "1765 abc rd");
-            var willy = new BuddyInfo("willy", "613-555-6666", "177 abc rd");
+            var jimmy = new BuddyInfo("jimmy", "613-111-2222", "102 Favella Road");
+            var timmy = new BuddyInfo("timmy", "613-222-3333", "511 Kinderheim Street");
+            var himmy = new BuddyInfo("himmy", "613-333-4444", "940 Industry Road");
+            var billy = new BuddyInfo("billy", "613-444-5555", "1738 Fett Avenue");
+            var willy = new BuddyInfo("willy", "613-555-6666", "488 Wayward Boulevard");
             var book = new AddressBook();
-            book.addBuddy(new BuddyInfo("harold", "613-741-7410", "109 abc rd"));
-            book.addBuddy(new BuddyInfo("garold", "613-852-8520", "156 abc rd"));
-            book.addBuddy(new BuddyInfo("larold", "613-963-9630", "134 abc rd"));
-            book.addBuddy(new BuddyInfo("walter", "613-147-1470", "176 abc rd"));
-            book.addBuddy(new BuddyInfo("donald", "613-258-2580", "1897 abc rd"));
+            book.addBuddy(new BuddyInfo("harold", "613-741-7410", "17 Stone Street"));
+            book.addBuddy(new BuddyInfo("garold", "613-852-8520", "7 Mile Street"));
+            book.addBuddy(new BuddyInfo("larold", "613-963-9630", "8 Mile Street"));
+            book.addBuddy(new BuddyInfo("walter", "613-147-1470", "908 Negra Arroya Lane"));
+            book.addBuddy(new BuddyInfo("donald", "613-258-2580", "70 Ward Circle"));
             buddyRepository.save(jimmy);
             buddyRepository.save(timmy);
             buddyRepository.save(himmy);
