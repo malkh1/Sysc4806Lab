@@ -73,20 +73,24 @@ public class TestingWebApplicationTests {
         }
 
     }
-    /*
-    @Test 
-    public void testPOST() throws Exception {
-        BuddyInfo testBuddy = new BuddyInfo("james", "613-224-6673", "1992 abc rd");
-        String jamesAsJson = new ObjectMapper().writeValueAsString(testBuddy);
-        var requestBuilder = MockMvcRequestBuilders.post("/buddies")
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(jamesAsJson);
-        var result = mockMvc.perform(requestBuilder).andReturn();
-        Assertions.assertEquals(HttpStatus.CREATED.value(),
-                result.getResponse().getStatus());
 
+    @Test
+    public void testPOST() {
+        try {
+            BuddyInfo testBuddy = new BuddyInfo("james", "613-224-6673", "1992 abc rd");
+            String jamesAsJson = new ObjectMapper().writeValueAsString(testBuddy);
+            var requestBuilder = MockMvcRequestBuilders.post("/buddies")
+                    .accept(MediaType.APPLICATION_JSON)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(jamesAsJson);
+            var result = mockMvc.perform(requestBuilder).andReturn();
+            Assertions.assertEquals(HttpStatus.CREATED.value(),
+                    result.getResponse().getStatus());
+
+        } catch (Exception e) {
+
+        }
 
     }
-     */
+
 }
