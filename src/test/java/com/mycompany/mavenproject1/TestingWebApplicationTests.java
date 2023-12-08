@@ -52,21 +52,28 @@ public class TestingWebApplicationTests {
         } else {
             System.out.println("mockmvc autowire success");
         }
+        System.out.println(mockMvc.toString());
+        assertThat(mockMvc.toString()).isNotNull();
+    }
+
+    @Test
+    public void testGET() {
+        try {
+            mockMvc.perform(get("/home"))
+                    .andDo(print())
+                    .andExpect(status().isOk()).
+                    andExpect(content().string(containsString("List")));
+
+            mockMvc.perform(get("/buddies"))
+                    .andDo(print())
+                    .andExpect(status().isOk()).
+                    andExpect(content().string(containsString("jimmy")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     /*
-    @Test
-    public void testGET() throws Exception {
-        mockMvc.perform(get("/home"))
-                .andDo(print())
-                .andExpect(status().isOk()).
-                andExpect(content().string(containsString("List")));
-        
-        mockMvc.perform(get("/buddies"))
-                .andDo(print())
-                .andExpect(status().isOk()).
-                andExpect(content().string(containsString("jimmy")));
-    }
-    
     @Test 
     public void testPOST() throws Exception {
         BuddyInfo testBuddy = new BuddyInfo("james", "613-224-6673", "1992 abc rd");
