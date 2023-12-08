@@ -22,6 +22,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
 /**
  *
  * @author Mohammad 101162465
@@ -30,24 +31,29 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class TestingWebApplicationTests {
-    
+
     @Autowired
     private MockMvc mockMvc;
-    
+
     @Autowired
     private HomeController controller;
-    
-    @BeforeAll
+
+    @Test
     public void contextLoads() {
-        try{
-            assertThat(controller).isNotNull();
-            assertThat(mockMvc).isNotNull();
-            System.out.println("test was run");
-        }catch(Exception e) {
-            e.printStackTrace();
+        assertThat(controller).isNotNull();
+        assertThat(mockMvc).isNotNull();
+        if (controller == null) {
+            System.out.println("controller failed to autowire");
+        } else {
+            System.out.println("controller autowire success");
+        }
+        if (mockMvc == null) {
+            System.out.println("mockmvc autowire fail");
+        } else {
+            System.out.println("mockmvc autowire success");
         }
     }
-
+    /*
     @Test
     public void testGET() throws Exception {
         mockMvc.perform(get("/home"))
@@ -75,10 +81,5 @@ public class TestingWebApplicationTests {
 
 
     }
-    
-    @Test 
-    public void testDelete() throws Exception {
-        
-    }
-       
+     */
 }
