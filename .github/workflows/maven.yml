@@ -22,5 +22,3 @@ jobs:
       run: |
         mvn clean install -DskipTests
         mvn -B package --file pom.xml
-      env:
-        MAVEN_OPTS: '-Dmaven.repo.local=./.m2/repository'
