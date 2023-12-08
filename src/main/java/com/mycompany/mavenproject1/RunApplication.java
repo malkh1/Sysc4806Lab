@@ -57,8 +57,7 @@ public class RunApplication {
             log.info("--------------------------------------------");
             buddyRepository.findByName("jimmy").forEach(result -> {
                 log.info(result.toString());
-            });
-            log.info("");*/
+            });*/
              bookRepository.save(book);
             log.info("Address books found with findAll():");
             log.info("-----------------------------");
