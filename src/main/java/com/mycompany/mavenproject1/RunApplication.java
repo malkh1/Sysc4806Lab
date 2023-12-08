@@ -24,7 +24,7 @@ public class RunApplication {
     public CommandLineRunner demo(BuddyInfoRepository buddyRepository,
             AddressBookRepository bookRepository) {
         return (args) -> {
-            var jimmy = new BuddyInfo("jimmy", "613-111-2222", "102 Favella Road");
+            var jimmy = new BuddyInfo("jimmy", "613-111-2222", "102 Favella Circle");
             var timmy = new BuddyInfo("timmy", "613-222-3333", "511 Kinderheim Street");
             var himmy = new BuddyInfo("himmy", "613-333-4444", "940 Industry Road");
             var billy = new BuddyInfo("billy", "613-444-5555", "1738 Fett Avenue");
