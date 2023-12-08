@@ -25,9 +25,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 /**
  *
- * @author Mohammad 101162465
+ * @author Mohammad 101162465 @ExtendWith(SpringExtension.class)
  */
-@ExtendWith(SpringExtension.class)
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class TestingWebApplicationTests {
