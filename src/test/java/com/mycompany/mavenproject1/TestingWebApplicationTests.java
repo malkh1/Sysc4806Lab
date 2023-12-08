@@ -6,6 +6,7 @@ import com.mycompany.mavenproject1.models.BuddyInfo;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -36,18 +37,18 @@ public class TestingWebApplicationTests {
     @Autowired
     private HomeController controller;
     
-    @Test
+    @BeforeAll
     public void contextLoads() {
         try{
             assertThat(controller).isNotNull();
             assertThat(mockMvc).isNotNull();
+            System.out.println("test was run");
         }catch(Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    
     public void testGET() throws Exception {
         mockMvc.perform(get("/home"))
                 .andDo(print())
