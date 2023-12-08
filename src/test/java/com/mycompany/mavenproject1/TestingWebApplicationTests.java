@@ -16,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 /**
@@ -24,6 +25,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
  */
 @SpringBootTest
 @AutoConfigureMockMvc
+@WithMockUser(username = "admin", roles = {"USER", "ADMIN"})
 public class TestingWebApplicationTests {
     
     @Autowired
@@ -42,6 +44,7 @@ public class TestingWebApplicationTests {
     }
     
     @Test
+    
     public void testGET() throws Exception {
         mockMvc.perform(get("/home"))
                 .andDo(print())
